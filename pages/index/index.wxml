@@ -1,0 +1,89 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="card">
+    <view class="title">沿途景点</view>
+    <view class="subtitle">输入起终点，看看路上能玩什么</view>
+
+    <!-- 起点 -->
+    <view class="input-group">
+      <view class="input-label">起点</view>
+      <view class="input-wrap">
+        <input
+          class="input"
+          placeholder="如：哈尔滨"
+          value="{{origin}}"
+          data-field="origin"
+          bindinput="onInput"
+          bindfocus="onFieldFocus"
+        />
+        <view class="input-clear" wx:if="{{origin}}" data-field="origin" bindtap="onClear">×</view>
+      </view>
+      <view class="suggestion-list" wx:if="{{originSuggestions.length > 0 && activeField === 'origin'}}">
+        <view
+          class="suggestion-item"
+          wx:for="{{originSuggestions}}"
+          wx:key="id"
+          data-field="origin"
+          data-item="{{item}}"
+          bindtap="onSelectSuggestion"
+        >
+          <view class="suggestion-name">{{item.name}}</view>
+          <view class="suggestion-addr">{{item.district}} {{item.address}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 终点 -->
+    <view class="input-group">
+      <view class="input-label">终点</view>
+      <view class="input-wrap">
+        <input
+          class="input"
+          placeholder="如：漠河"
+          value="{{destination}}"
+          data-field="destination"
+          bindinput="onInput"
+          bindfocus="onFieldFocus"
+        />
+        <view class="input-clear" wx:if="{{destination}}" data-field="destination" bindtap="onClear">×</view>
+      </view>
+      <view class="suggestion-list" wx:if="{{destinationSuggestions.length > 0 && activeField === 'destination'}}">
+        <view
+          class="suggestion-item"
+          wx:for="{{destinationSuggestions}}"
+          wx:key="id"
+          data-field="destination"
+          data-item="{{item}}"
+          bindtap="onSelectSuggestion"
+        >
+          <view class="suggestion-name">{{item.name}}</view>
+          <view class="suggestion-addr">{{item.district}} {{item.address}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 交通方式 -->
+    <view class="input-group">
+      <view class="input-label">交通方式</view>
+      <view class="mode-row">
+        <view
+          class="mode-chip {{mode === item.value ? 'mode-chip-active' : ''}}"
+          wx:for="{{modeOptions}}"
+          wx:key="value"
+          data-value="{{item.value}}"
+          bindtap="onModeChange"
+        >{{item.label}}</view>
+      </view>
+    </view>
+
+    <button class="btn-primary" bindtap="onSearch" style="margin-top: 48rpx;">沿途看看</button>
+  </view>
+
+  <view class="card">
+    <view class="title">使用说明</view>
+    <view class="tip-item">• 输入起终点后，从下拉建议中选择</view>
+    <view class="tip-item">• 公交模式包含火车、长途车</view>
+    <view class="tip-item">• 仅显示沿线景点，不做推荐</view>
+    <view class="tip-item">• 点击"去这里"可跳转地图 App</view>
+  </view>
+</view>

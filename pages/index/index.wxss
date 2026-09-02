@@ -1,0 +1,98 @@
+/* pages/index/index.wxss */
+
+.input-group {
+  margin-top: 32rpx;
+}
+
+.input-label {
+  font-size: 28rpx;
+  color: #555;
+  margin-bottom: 12rpx;
+}
+
+.input-wrap {
+  position: relative;
+  background: #f8f8f8;
+  border-radius: 12rpx;
+  padding: 0 24rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  height: 88rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.input-clear {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 36rpx;
+  text-align: center;
+  background: #ccc;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 32rpx;
+}
+
+.suggestion-list {
+  background: #fff;
+  border: 2rpx solid #eee;
+  border-top: none;
+  border-radius: 0 0 12rpx 12rpx;
+  max-height: 400rpx;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  padding: 20rpx 24rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-name {
+  font-size: 30rpx;
+  color: #222;
+  margin-bottom: 6rpx;
+}
+
+.suggestion-addr {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.mode-row {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 12rpx;
+}
+
+.mode-chip {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  background: #f8f8f8;
+  border: 2rpx solid transparent;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.mode-chip-active {
+  background: #e8f7e8;
+  color: #1aad19;
+  border-color: #1aad19;
+  font-weight: 500;
+}
+
+.tip-item {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.8;
+}

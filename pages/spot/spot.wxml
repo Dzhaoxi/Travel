@@ -1,0 +1,66 @@
+<!--pages/spot/spot.wxml-->
+<view class="container">
+  <view class="card">
+    <!-- 图片 -->
+    <block wx:if="{{detail && detail.photos && detail.photos.length > 0}}">
+      <image
+        class="spot-banner"
+        src="{{detail.photos[0].url}}"
+        mode="aspectFill"
+        binderror="onImageError"
+      ></image>
+    </block>
+    <view class="spot-banner-placeholder" wx:else>
+      <view class="placeholder-text">{{spot.name}}</view>
+    </view>
+
+    <!-- 名称 + 收藏 -->
+    <view class="spot-header">
+      <view class="spot-name">{{spot.name}}</view>
+      <view class="fav-btn {{favorited ? 'fav-btn-active' : ''}}" bindtap="onToggleFavorite">
+        <text class="fav-icon">{{favorited ? '★' : '☆'}}</text>
+        <text class="fav-text">{{favorited ? '已收藏' : '收藏'}}</text>
+      </view>
+    </view>
+
+    <!-- 地址 -->
+    <view class="info-row">
+      <view class="info-label">地址</view>
+      <view class="info-value">{{spot.address || '暂无'}}</view>
+    </view>
+
+    <!-- 电话 -->
+    <view class="info-row" wx:if="{{spot.tel}}">
+      <view class="info-label">电话</view>
+      <view class="info-value">{{spot.tel}}</view>
+    </view>
+
+    <!-- 类型 -->
+    <view class="info-row" wx:if="{{spot.type}}">
+      <view class="info-label">类型</view>
+      <view class="info-value">{{spot.type}}</view>
+    </view>
+
+    <!-- 简介 -->
+    <view class="info-row" wx:if="{{detail && detail.intro}}">
+      <view class="info-label">简介</view>
+      <view class="info-value">{{detail.intro}}</view>
+    </view>
+    <view class="info-row" wx:elif="{{detail && detail.business}}">
+      <view class="info-label">简介</view>
+      <view class="info-value">{{detail.business}}</view>
+    </view>
+
+    <view class="loading-text" wx:if="{{loading}}">正在加载详情...</view>
+  </view>
+
+  <!-- 操作区 -->
+  <view class="action-bar">
+    <view class="action-bar-btn action-bar-secondary" bindtap="onToggleFavorite">
+      <text>{{favorited ? '★ 已收藏' : '☆ 收藏'}}</text>
+    </view>
+    <view class="action-bar-btn action-bar-primary" bindtap="onOpenMap">
+      <text>去这里</text>
+    </view>
+  </view>
+</view>

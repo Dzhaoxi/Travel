@@ -1,0 +1,60 @@
+<!--pages/route/route.wxml-->
+<view class="container">
+  <!-- 路线总览 -->
+  <view class="card route-overview">
+    <view class="title">途经城市</view>
+    <view class="city-chain">
+      <block wx:for="{{waypoints}}" wx:key="name">
+        <view class="city-node">
+          <view class="city-dot"></view>
+          <view class="city-name">{{item.name}}</view>
+        </view>
+        <view class="city-arrow" wx:if="{{index < waypoints.length - 1}}">→</view>
+      </block>
+    </view>
+    <view class="mode-tag">交通方式：{{mode === 'driving' ? '驾车' : mode === 'walking' ? '步行' : '公交'}}</view>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading-wrap" wx:if="{{loading}}">
+    <view class="loading-text">正在查询沿途景点...</view>
+  </view>
+
+  <!-- 各城市景点 -->
+  <block wx:if="{{!loading}}" wx:for="{{citySpots}}" wx:for-item="cityData" wx:key="city">
+    <view class="card city-card">
+      <view class="city-header" data-idx="{{index}}" bindtap="onToggleCity">
+        <view class="city-title">
+          <text class="city-name-main">{{cityData.city}}</text>
+          <text class="city-count" wx:if="{{!cityData.loading}}">（{{cityData.spots.length}} 个景点）</text>
+        </view>
+        <view class="city-arrow-toggle">{{expanded[index] ? '收起 ▲' : '展开 ▼'}}</view>
+      </view>
+
+      <view class="city-body" wx:if="{{expanded[index]}}">
+        <view wx:if="{{cityData.loading}}" class="loading-text">查询中...</view>
+        <view wx:elif="{{cityData.error}}" class="error-text">查询失败：{{cityData.error}}</view>
+        <view wx:elif="{{cityData.spots.length === 0}}" class="empty-text">该城市暂无景点数据</view>
+        <view wx:else>
+          <view
+            class="spot-item"
+            wx:for="{{cityData.spots}}"
+            wx:for-item="spot"
+            wx:key="id"
+            data-spot="{{spot}}"
+            bindtap="onSpotTap"
+          >
+            <view class="spot-main">
+              <view class="spot-name">{{spot.name}}</view>
+              <view class="spot-address">{{spot.address}}</view>
+              <view class="spot-type" wx:if="{{spot.type}}">{{spot.type}}</view>
+            </view>
+            <view class="spot-actions">
+              <view class="action-btn action-btn-map" data-spot="{{spot}}" catchtap="onOpenMap">去这里</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

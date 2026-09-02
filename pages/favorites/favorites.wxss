@@ -1,0 +1,99 @@
+/* pages/favorites/favorites.wxss */
+
+.header-card {
+  padding: 24rpx 32rpx;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.header-action {
+  font-size: 26rpx;
+  color: #e64340;
+}
+
+.empty-wrap {
+  text-align: center;
+  padding: 200rpx 0;
+}
+
+.empty-icon {
+  font-size: 100rpx;
+  margin-bottom: 32rpx;
+  opacity: 0.3;
+}
+
+.empty-title {
+  font-size: 32rpx;
+  color: #999;
+  margin-bottom: 16rpx;
+}
+
+.empty-tip {
+  font-size: 26rpx;
+  color: #bbb;
+}
+
+.fav-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx;
+}
+
+.fav-main {
+  flex: 1;
+  overflow: hidden;
+}
+
+.fav-name {
+  font-size: 32rpx;
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fav-city {
+  display: inline-block;
+  font-size: 22rpx;
+  color: #1aad19;
+  background: #e8f7e8;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  margin-bottom: 8rpx;
+  margin-right: 12rpx;
+}
+
+.fav-address {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 6rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fav-time {
+  font-size: 22rpx;
+  color: #bbb;
+}
+
+.fav-action {
+  font-size: 26rpx;
+  color: #e64340;
+  padding: 12rpx 24rpx;
+  border: 2rpx solid #e64340;
+  border-radius: 24rpx;
+  margin-left: 16rpx;
+}

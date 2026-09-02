@@ -1,0 +1,33 @@
+<!--pages/favorites/favorites.wxml-->
+<view class="container">
+  <view class="card header-card" wx:if="{{favorites.length > 0}}">
+    <view class="header-row">
+      <view class="header-text">共 {{favorites.length}} 个收藏</view>
+      <view class="header-action" bindtap="onClearAll">清空</view>
+    </view>
+  </view>
+
+  <view class="empty-wrap" wx:if="{{favorites.length === 0}}">
+    <view class="empty-icon">⭐</view>
+    <view class="empty-title">还没有收藏</view>
+    <view class="empty-tip">在景点详情页点击"收藏"按钮即可添加</view>
+  </view>
+
+  <block wx:else>
+    <view
+      class="card fav-card"
+      wx:for="{{favorites}}"
+      wx:key="id"
+      data-spot="{{item}}"
+      bindtap="onSpotTap"
+    >
+      <view class="fav-main">
+        <view class="fav-name">{{item.name}}</view>
+        <view class="fav-city" wx:if="{{item.city}}">{{item.city}}</view>
+        <view class="fav-address">{{item.address || '暂无地址'}}</view>
+        <view class="fav-time">收藏于 {{item.favoriteTimeText}}</view>
+      </view>
+      <view class="fav-action" data-id="{{item.id}}" catchtap="onUnfavorite">取消</view>
+    </view>
+  </block>
+</view>

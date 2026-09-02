@@ -1,0 +1,163 @@
+/* pages/route/route.wxss */
+
+.route-overview .city-chain {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin: 24rpx 0;
+}
+
+.city-node {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.city-dot {
+  width: 16rpx;
+  height: 16rpx;
+  background: #1aad19;
+  border-radius: 50%;
+}
+
+.city-name {
+  font-size: 30rpx;
+  color: #222;
+  font-weight: 500;
+}
+
+.city-arrow {
+  color: #ccc;
+  font-size: 28rpx;
+}
+
+.mode-tag {
+  font-size: 24rpx;
+  color: #888;
+  margin-top: 16rpx;
+}
+
+.loading-wrap {
+  text-align: center;
+  padding: 80rpx 0;
+}
+
+.loading-text {
+  text-align: center;
+  color: #999;
+  font-size: 26rpx;
+  padding: 24rpx 0;
+}
+
+.error-text {
+  text-align: center;
+  color: #e64340;
+  font-size: 26rpx;
+  padding: 24rpx 0;
+}
+
+.empty-text {
+  text-align: center;
+  color: #999;
+  font-size: 26rpx;
+  padding: 24rpx 0;
+}
+
+.city-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8rpx 0;
+}
+
+.city-title {
+  flex: 1;
+}
+
+.city-name-main {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #222;
+}
+
+.city-count {
+  font-size: 24rpx;
+  color: #888;
+  font-weight: normal;
+  margin-left: 8rpx;
+}
+
+.city-arrow-toggle {
+  font-size: 24rpx;
+  color: #1aad19;
+}
+
+.city-body {
+  margin-top: 24rpx;
+  border-top: 2rpx solid #f0f0f0;
+  padding-top: 24rpx;
+}
+
+.spot-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 2rpx solid #f8f8f8;
+}
+
+.spot-item:last-child {
+  border-bottom: none;
+}
+
+.spot-main {
+  flex: 1;
+  margin-right: 16rpx;
+  overflow: hidden;
+}
+
+.spot-name {
+  font-size: 30rpx;
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spot-address {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 6rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spot-type {
+  font-size: 22rpx;
+  color: #1aad19;
+  background: #e8f7e8;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  display: inline-block;
+}
+
+.spot-actions {
+  display: flex;
+  gap: 12rpx;
+}
+
+.action-btn {
+  font-size: 24rpx;
+  padding: 12rpx 20rpx;
+  border-radius: 24rpx;
+  white-space: nowrap;
+}
+
+.action-btn-map {
+  background: #1aad19;
+  color: #fff;
+}
